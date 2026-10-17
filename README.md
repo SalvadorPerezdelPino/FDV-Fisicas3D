@@ -30,3 +30,19 @@ Tiene el mismo efecto que la situación 3b. La documentación de Unity indica lo
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con 100 veces más masa que el cubo. En este caso, todos los objetos deben tener Rigidbody.
 
 Mismo caso que en la situación 4. Al no haber contacto, el cambio de masa no influye en el resultado. Donde sí influye es en el choque que se pudiera realizar en otras situaciones. A más masa, más empuje se realiza sobre otros objetos al colisionar.
+
+### Situación 5b
+> El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con fricción. En este caso, todos los objetos deben tener Rigidbody.
+
+TODO: pendiente a resolver la duda de la fricción
+
+### Situación 6
+> El plano es un objeto físico. El cubo es un objeto físico y la esfera no es física y es Trigger. En este caso, todos los objetos deben tener Rigidbody.
+
+TODO: pendiente a resolver las dudas con la gravedad
+
+### Situación 6b
+> El plano es un objeto físico. El cubo es un objeto físico y la esfera es física y es Trigger. En este caso, todos los objetos deben tener Rigidbody.
+
+TODO: pendiente a resolver las dudas con la gravedad
+
