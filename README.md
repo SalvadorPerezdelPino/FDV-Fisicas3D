@@ -15,3 +15,8 @@ En este caso, al añadirle físicas a la esfera, esta cae por acción de la grav
 
 El plano se mantiene en su sitio al no ser físico. El cubo cae por la gravedad al ser dinámico y tener la gravedad activada. La esfera ahora no cae al ser de tipo cinemático, pues el movimiento se delega a los scripts que cambian su posición.
 Según la tabla, la esfera y el plano no colisionarían en caso de moverse al tener colisiones cinemática y estática, respectivamente. Sin embargo, la esfera y el cubo sí colisionarían si se acercaran puesto que existe esta interacción entre cinemática y dinámica.
+
+### Situación 3b
+> El plano es un objeto físico. El cubo es un objeto físico y la esfera es física. En este caso, todos los objetos deben tener Rigidbody. 
+
+Al ser todos los objetos físicos, caen al vacío sin tocarse por caer a la misma velocidad. Como tienen colisiones dinámicas, los eventos de colisión pueden ocurrir entre todos y chocarían en ese caso.
