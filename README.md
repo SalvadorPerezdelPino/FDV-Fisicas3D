@@ -46,3 +46,17 @@ TODO: pendiente a resolver las dudas con la gravedad
 
 TODO: pendiente a resolver las dudas con la gravedad
 
+## Ejercicio 2
+> Crea un controlador con las teclas flecha arriba-abajo, derecha-izquierda que controle al cilindro con físicas
+
+![Add forces](./media/AddForce.gif)
+
+Utilizo el `FixedUpdate` ya que se encuentra dentro del bucle de físicas y es el que calcula correctamente la interacción con el cilindro.
+
+```cs
+    void FixedUpdate()
+    {
+        direction = new Vector3(moveAction.action.ReadValue<Vector2>().x, 0, moveAction.action.ReadValue<Vector2>().y);
+        rb.AddForce(direction * force);
+    }
+```
