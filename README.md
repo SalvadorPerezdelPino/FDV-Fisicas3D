@@ -25,3 +25,8 @@ Al ser todos los objetos físicos, caen al vacío sin tocarse por caer a la mism
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con 10 veces más masa que el cubo. En este caso, todos los objetos deben tener Rigidbody.
 
 Tiene el mismo efecto que la situación 3b. La documentación de Unity indica lo siguiente: `A common mistake is to assume that heavy objects fall faster than light ones. This is not true as the speed is dependent on gravity and drag.`. Por tanto, el aumento de masa solo influiría en caso de colisión, pero al no tocarse entre ellos, no cambia la situación.
+
+### Situación 5
+> El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con 100 veces más masa que el cubo. En este caso, todos los objetos deben tener Rigidbody.
+
+Mismo caso que en la situación 4. Al no haber contacto, el cambio de masa no influye en el resultado. Donde sí influye es en el choque que se pudiera realizar en otras situaciones. A más masa, más empuje se realiza sobre otros objetos al colisionar.
