@@ -54,9 +54,29 @@ TODO: pendiente a resolver las dudas con la gravedad
 Utilizo el `FixedUpdate` ya que se encuentra dentro del bucle de físicas y es el que calcula correctamente la interacción con el cilindro.
 
 ```cs
-    void FixedUpdate()
-    {
-        direction = new Vector3(moveAction.action.ReadValue<Vector2>().x, 0, moveAction.action.ReadValue<Vector2>().y);
-        rb.AddForce(direction * force);
-    }
+void FixedUpdate()
+{
+    direction = new Vector3(moveAction.action.ReadValue<Vector2>().x, 0, moveAction.action.ReadValue<Vector2>().y);
+    rb.AddForce(direction * force);
+}
 ```
+
+## Ejercicio 3
+> Crea varios cubos o esferas con Rigidbody dinámico. Muestra por consola el nombre del objeto con el que colisiona, y cámbiale su color al colisionar.
+
+Nota: bloqueé las rotaciones del cilindro para que fuera más sencillo moverlo de cara a los gifs.
+
+![Cambiar material al tocar](./media/ChangeMaterialOnCollision.gif)
+
+```cs
+private void OnCollisionEnter(Collision other) {
+    if (other.gameObject.CompareTag("Player"))
+    {
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material = materialToChange;
+        Debug.Log(this.name);
+    }
+}
+```
+
+En este caso tenía dos opciones: colocar el evento en el jugador o en los cubos. En este caso, me he decantado por delegar la responsabilidad a los cubos. Si fueran enemigos de un videojuego, el cambio de material podría ser disminuir su vida. Además, de esta manera es más sencillo variar el material nuevo a poner en los cubos.
