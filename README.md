@@ -80,3 +80,17 @@ private void OnCollisionEnter(Collision other) {
 ```
 
 En este caso tenía dos opciones: colocar el evento en el jugador o en los cubos. En este caso, me he decantado por delegar la responsabilidad a los cubos. Si fueran enemigos de un videojuego, el cambio de material podría ser disminuir su vida. Además, de esta manera es más sencillo variar el material nuevo a poner en los cubos.
+
+## Ejercicio 4
+> En la escena debe haber 3. Un cubo y un cilindro cinemáticos, una esfera con collider y Rigidbody. Marcar el cilindro como objetivo a alcanzar por la esfera. El cubo debe hacer de obstáculo entre ambos. Implementar un script que haga que la esfera se dirija al cilindro, cuando la esfera alcance el cubo, este debe cambiar su material y el cubo avanzar hacia adelante.
+
+![Move Position](./media/MovePosition.gif)
+
+Para desplazar el cubo hacia delante, he usado su vector forward y `MovePosition`. Si quisiera también rotarlo, podría usar `Move` para cambiar todo o `MoveRotation` para la rotación. Hay que tener cuidado porque estas funciones utilizan coordenadas absolutas, no añaden un desplazamiento.
+
+```cs
+void MoveForward()
+{
+    rb.MovePosition(transform.position + transform.forward * Time.deltaTime * speed);
+}
+```
