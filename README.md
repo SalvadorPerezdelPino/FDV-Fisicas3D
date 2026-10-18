@@ -19,12 +19,12 @@ Según la tabla, la esfera y el plano no colisionarían en caso de moverse al te
 ### Situación 3b
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física. En este caso, todos los objetos deben tener Rigidbody. 
 
-Al ser todos los objetos físicos, caen al vacío sin tocarse por caer a la misma velocidad. Como tienen colisiones dinámicas, los eventos de colisión pueden ocurrir entre todos y chocarían en ese caso.
+Al ser todos los objetos físicos, caen al vacío sin tocarse por caer a la misma velocidad. Como tienen colisiones dinámicas, los eventos de colisión pueden ocurrir entre todos y chocarían en el caso de que dejáramos sin gravedad al plano.
 
 ### Situación 4
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con 10 veces más masa que el cubo. En este caso, todos los objetos deben tener Rigidbody.
 
-Tiene el mismo efecto que la situación 3b. La documentación de Unity indica lo siguiente: `A common mistake is to assume that heavy objects fall faster than light ones. This is not true as the speed is dependent on gravity and drag.`. Por tanto, el aumento de masa solo influiría en caso de colisión, pero al no tocarse entre ellos, no cambia la situación.
+Tiene el mismo efecto que la situación 3b. La documentación de Unity indica lo siguiente: `A common mistake is to assume that heavy objects fall faster than light ones. This is not true as the speed is dependent on gravity and drag.`. Por tanto, el aumento de masa solo influiría en caso de colisión, pero al no tocarse entre ellos, no cambia la situación. Si se dejara el plano sin gravedad y chocaran, la mayor masa provocaría un choque más fuerte.
 
 ### Situación 5
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con 100 veces más masa que el cubo. En este caso, todos los objetos deben tener Rigidbody.
@@ -34,17 +34,17 @@ Mismo caso que en la situación 4. Al no haber contacto, el cambio de masa no in
 ### Situación 5b
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física con fricción. En este caso, todos los objetos deben tener Rigidbody.
 
-TODO: pendiente a resolver la duda de la fricción
+Si se entiende que la fricción es el linear damping, colocando un valor distinto de 0 afecta tanto a la velocidad al caer como al desplazarse. A mayor valor, más cuesta moverse.
 
 ### Situación 6
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera no es física y es Trigger. En este caso, todos los objetos deben tener Rigidbody.
 
-TODO: pendiente a resolver las dudas con la gravedad
+Si la esfera no es física, al quitarle el rigidbody, tanto el plano como el cubo caerían. Asumiento que le quitamos la gravedad al plano,el cubo tendría gravedad pero la esfera no. Si se moviera el cubo, podría atravesar a la esfera al ser Trigger y activaría los eventos de Trigger.
 
 ### Situación 6b
 > El plano es un objeto físico. El cubo es un objeto físico y la esfera es física y es Trigger. En este caso, todos los objetos deben tener Rigidbody.
 
-TODO: pendiente a resolver las dudas con la gravedad
+Como ahora la esfera es física pero con trigger, el efecto de la gravedad actúa sobre ella. Hayamos detenido o no el plano para sujetar los otros elementos, al ser Trigger, la esfera cae y atraviesa el plano, activando los eventos de Trigger.
 
 ## Ejercicio 2
 > Crea un controlador con las teclas flecha arriba-abajo, derecha-izquierda que controle al cilindro con físicas
